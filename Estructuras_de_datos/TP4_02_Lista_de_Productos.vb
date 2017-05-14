@@ -4,9 +4,9 @@
     'código de producto y el programa muestra su descripción y precio, luego el usuario ingresa la
     'cantidad. Esto sucede hasta que el código sea cero.
     Sub Main()
-        Dim codigo() As Integer = {1, 2, 3}
-        Dim nombre() As String = {"Jabon", "Detergente", "Esponja"}
-        Dim precio() As Single = {23.5, 50.75, 10}
+        Dim codigo = New Integer() {1, 2, 3}
+        Dim nombre = New String() {"Jabon", "Detergente", "Esponja"}
+        Dim precio = New String() {23.5, 50.75, 10}
         Dim cod, cant As Integer
         Do
             Console.Write("Ingrese codigo de producto: ")

@@ -5,8 +5,7 @@
     'de los mismos. La DESVIACION de cada elemento se obtiene restándole al elemento la
     'MEDIA.
     Sub Main()
-        Dim arreglo() As Integer = {0, 0, 0, 0}
-        Dim total, media As Integer
+        Dim arreglo(4), total, media As Double
         For i = 0 To 4
             Console.Write("Ingrese un numero: ")
             arreglo(i) = Console.ReadLine()
