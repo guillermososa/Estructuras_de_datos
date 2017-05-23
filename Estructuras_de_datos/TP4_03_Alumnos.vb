@@ -13,7 +13,6 @@
         Do
             CantNotas = LeerNumero("Ingrese cantidad de notas por alumno: ")
         Loop Until CantNotas >= 1 And CantNotas <= 4
-        Console.Clear()
     End Sub
     Private Sub IngresoAlumno(ByVal fila As Integer, ByRef Alumno() As String)
         Do
@@ -46,6 +45,7 @@
         Dim Nota(CantAlumnos - 1, CantNotas - 1) As Single
         Dim Promedio(CantAlumnos - 1) As Single
         For fila = 0 To CantAlumnos - 1
+            Console.Clear()
             IngresoAlumno(fila, Alumno)
             For columna = 0 To CantNotas - 1
                 IngresoNota(fila, columna, Nota(fila, columna))
