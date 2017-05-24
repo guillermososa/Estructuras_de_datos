@@ -4,13 +4,14 @@
     'dominio y se deberá mostrar el nombre del país. Salir cuando el valor ingresado es vacío.
     Sub main()
         Dim paises As New Collection
-        paises.Add("Argentina", "AR")
-        paises.Add("Chile", "CL")
-        paises.Add("Brasil", "BR")
-        paises.Add("Paraguay", "PY")
+        paises.Add("Argentina", "ar")
+        paises.Add("Chile", "cl")
+        paises.Add("Brasil", "br")
+        paises.Add("Paraguay", "py")
         Dim ingreso As String
         Do
-            ingreso = LeerTexto("Ingrese dominio: ")
+            Console.Write("Ingrese dominio: ")
+            ingreso = Console.ReadLine()
             If paises.Contains(ingreso) Then
                 Console.WriteLine(paises.Item(ingreso))
             Else
@@ -20,8 +21,4 @@
             Console.Clear()
         Loop Until ingreso = ""
     End Sub
-    Function LeerTexto(mensaje As String) As String
-        Console.Write(mensaje)
-        Return Console.ReadLine()
-    End Function
 End Module
