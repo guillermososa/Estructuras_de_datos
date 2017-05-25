@@ -8,17 +8,18 @@
         paises.Add("Chile", "cl")
         paises.Add("Brasil", "br")
         paises.Add("Paraguay", "py")
-        Dim ingreso As String
+        Dim dominio, pais As String
         Do
+            Console.Clear()
             Console.Write("Ingrese dominio: ")
-            ingreso = Console.ReadLine()
-            If paises.Contains(ingreso) Then
-                Console.WriteLine(paises.Item(ingreso))
+            dominio = Console.ReadLine()
+            If paises.Contains(dominio) Then
+                pais = paises.Item(dominio)
+                Console.WriteLine(pais)
             Else
-                Console.WriteLine("Valor no encontrado")
+                Console.WriteLine("Pais no encontrado")
             End If
             Console.ReadKey()
-            Console.Clear()
-        Loop Until ingreso = ""
+        Loop Until dominio = ""
     End Sub
 End Module
