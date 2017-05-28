@@ -31,6 +31,9 @@
             paises.Remove(dominio)
         End If
     End Sub
+    Private Sub EliminarTodo(ByRef paises As Collection)
+        paises.Clear()
+    End Sub
     Sub MostrarPais(ByRef paises As Collection)
         dominio = LeerTexto("Ingrese Dominio: ")
         If Not paises.Contains(dominio) Then
@@ -41,7 +44,7 @@
         End If
         Console.ReadKey()
     End Sub
-    Sub MostrarPaises(ByRef paises As Collection)
+    Sub MostrarTodo(ByRef paises As Collection)
         For i = 1 To paises.Count
             pais = paises.Item(i)
             Console.WriteLine("Pais {0}: {1}", i, pais)
@@ -59,7 +62,7 @@
         paises.Add("Paraguay", "py")
         Do
             Console.Clear()
-            Console.WriteLine("0) Salir 1) Agregar 2)Editar 3)Eliminar 4)Mostrar 5)Mostrar todo")
+            Console.WriteLine("0) Salir 1) Agregar 2)Editar 3)Eliminar 4)Eliminar todo 5)Mostrar 6)Mostrar todo")
             Console.WriteLine("Cantidad de paises cargados " & paises.Count)
             Console.Write("Ingrese Opcion: ")
             opcion = Val(Console.ReadLine())
@@ -71,9 +74,11 @@
                 Case 3
                     EliminarPais(paises)
                 Case 4
-                    MostrarPais(paises)
+                    EliminarTodo(paises)
                 Case 5
-                    MostrarPaises(paises)
+                    MostrarPais(paises)
+                Case 6
+                    MostrarTodo(paises)
                 Case Else
                     opcion = 0
             End Select
