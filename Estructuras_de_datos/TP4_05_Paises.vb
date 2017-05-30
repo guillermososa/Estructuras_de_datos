@@ -2,6 +2,7 @@
     '4.5. Al ejercicio anterior agregarle las funcionalidades que permita 
     'interactivamente agregar, editar, eliminar y mostrar el nombre de país 
     'y su dominio. También informar la cantidad de países cargados.
+    Private dominio, pais As String
     Enum Opciones As Byte
         salir
         agregar
@@ -11,7 +12,6 @@
         mostrar
         mostrartodo
     End Enum
-    Private dominio, pais As String
     Sub main()
         'Declaracion e inicializacion de la coleccion
         Dim paises As New Collection
