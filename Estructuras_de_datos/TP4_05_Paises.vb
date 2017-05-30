@@ -1,7 +1,7 @@
 ﻿Module TP4_05_Paises
     '4.5. Al ejercicio anterior agregarle las funcionalidades que permita 
     'interactivamente agregar, editar, eliminar y mostrar el nombre de país 
-    'y su dominio. También informar la cantidad de países cargados.
+    'y su dominio. También informar la cantidad de países cargados. 
     Private dominio, pais As String
     Enum Opciones As Byte
         salir
