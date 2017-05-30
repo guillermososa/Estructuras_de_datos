@@ -59,7 +59,7 @@
         Console.ReadKey()
     End Sub
     Private Sub EditarPais(ByRef paises As Collection)
-        If paises.Count <> 0 Then
+        If ExistenPaises(paises.Count) Then
             dominio = LeerTexto("Ingrese Dominio: ")
             If Not paises.Contains(dominio) Then
                 Console.WriteLine("Pais no encontrado!.")
@@ -72,13 +72,11 @@
                 paises.Add(pais, dominio)
                 Console.WriteLine("Datos editados correctamente(Dominio: {0} Pais: {1}).", dominio, pais)
             End If
-        Else
-            Console.WriteLine("No existen paises para editar!.")
         End If
         Console.ReadKey()
     End Sub
     Private Sub EliminarPais(ByRef paises As Collection)
-        If paises.Count <> 0 Then
+        If ExistenPaises(paises.Count) Then
             dominio = LeerTexto("Ingrese Dominio: ")
             If Not paises.Contains(dominio) Then
                 Console.WriteLine("Pais no encontrado!.")
@@ -88,22 +86,18 @@
                 Console.WriteLine("Datos eliminados correctamente(Dominio: {0} Pais: {1}).", dominio, pais)
                 paises.Remove(dominio)
             End If
-        Else
-            Console.WriteLine("No existen paises para eliminar!.")
         End If
         Console.ReadKey()
     End Sub
     Private Sub EliminarTodo(ByRef paises As Collection)
-        If paises.Count <> 0 Then
+        If ExistenPaises(paises.Count) Then
             paises.Clear()
             Console.WriteLine("Todos los datos fueron eliminados correctamente!.")
-        Else
-            Console.WriteLine("No existen paises para eliminar!.")
         End If
         Console.ReadKey()
     End Sub
     Sub MostrarPais(ByRef paises As Collection)
-        If paises.Count <> 0 Then
+        If ExistenPaises(paises.Count) Then
             dominio = LeerTexto("Ingrese Dominio: ")
             If Not paises.Contains(dominio) Then
                 Console.WriteLine("Pais no encontrado!.")
@@ -111,19 +105,15 @@
                 pais = paises.Item(dominio)
                 Console.WriteLine("Dominio: {0} Pais: {1}.", dominio, pais)
             End If
-        Else
-            Console.WriteLine("No existen paises para mostrar!.")
         End If
         Console.ReadKey()
     End Sub
     Sub MostrarTodo(ByRef paises As Collection)
-        If paises.Count <> 0 Then
+        If ExistenPaises(paises.Count) Then
             For i = 1 To paises.Count
                 pais = paises.Item(i)
                 Console.WriteLine("Pais {0}: {1}", i, pais)
             Next
-        Else
-            Console.WriteLine("No existen paises para mostrar!.")
         End If
         Console.ReadKey()
     End Sub
@@ -137,5 +127,13 @@
             End If
         Loop While ingreso = ""
         Return ingreso
+    End Function
+    Private Function ExistenPaises(contenido As Boolean) As Boolean
+        If contenido = 0 Then
+            Console.WriteLine("No existen paises!.")
+            Return False
+        Else
+            Return True
+        End If
     End Function
 End Module
