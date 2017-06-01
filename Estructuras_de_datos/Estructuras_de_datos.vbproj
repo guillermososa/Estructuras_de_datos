@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D91E05A8-8770-4794-95B3-F2AB245CCC0F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>Estructuras_de_datos.TP4_05_Paises</StartupObject>
+    <StartupObject>Estructuras_de_datos.Pruebas</StartupObject>
     <RootNamespace>Estructuras_de_datos</RootNamespace>
     <AssemblyName>Estructuras_de_datos</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -68,6 +68,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pruebas.vb" />
     <Compile Include="TP4_10_Nombres.vb" />
     <Compile Include="TP4_09_Turnos.vb" />
     <Compile Include="TP4_08_Paises.vb" />

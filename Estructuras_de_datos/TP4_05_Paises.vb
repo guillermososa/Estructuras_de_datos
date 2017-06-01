@@ -1,8 +1,11 @@
 ﻿Module TP4_05_Paises
+
     '4.5. Al ejercicio anterior agregarle las funcionalidades que permita 
     'interactivamente agregar, editar, eliminar y mostrar el nombre de país 
     'y su dominio. También informar la cantidad de países cargados. 
+
     Private dominio, pais As String
+
     Enum Opciones As Byte
         salir
         agregar
@@ -12,11 +15,10 @@
         mostrar
         mostrartodo
     End Enum
-    Sub main()
-        'Declaracion e inicializacion de la coleccion
+
+    Sub Main()
         Dim paises As New Collection
         Dim opcion As Byte
-        'carga inicial de la coleccion
         paises.Add("Argentina", "ar")
         paises.Add("Chile", "cl")
         paises.Add("Brasil", "br")
@@ -47,20 +49,22 @@
             End Select
         Loop Until opcion = 0
     End Sub
+
     Private Sub AgregarPais(ByRef paises As Collection)
-        dominio = LeerTexto("Ingrese Dominio: ")
+        dominio = Leer_Validar_Texto("Ingrese Dominio: ")
         If paises.Contains(dominio) Then
             Console.WriteLine("Pais ya existe!.")
         Else
-            pais = LeerTexto("Ingrese Pais: ")
+            pais = Leer_Validar_Texto("Ingrese Pais: ")
             paises.Add(pais, dominio)
             Console.WriteLine("Datos guardados correctamente(Dominio: {0} Pais: {1}).", dominio, pais)
         End If
         Console.ReadKey()
     End Sub
+
     Private Sub EditarPais(ByRef paises As Collection)
         If ExistenPaises(paises.Count) Then
-            dominio = LeerTexto("Ingrese Dominio: ")
+            dominio = Leer_Validar_Texto("Ingrese Dominio: ")
             If Not paises.Contains(dominio) Then
                 Console.WriteLine("Pais no encontrado!.")
             Else
@@ -75,9 +79,10 @@
         End If
         Console.ReadKey()
     End Sub
+
     Private Sub EliminarPais(ByRef paises As Collection)
         If ExistenPaises(paises.Count) Then
-            dominio = LeerTexto("Ingrese Dominio: ")
+            dominio = Leer_Validar_Texto("Ingrese Dominio: ")
             If Not paises.Contains(dominio) Then
                 Console.WriteLine("Pais no encontrado!.")
                 Console.ReadKey()
@@ -89,6 +94,7 @@
         End If
         Console.ReadKey()
     End Sub
+
     Private Sub EliminarTodo(ByRef paises As Collection)
         If ExistenPaises(paises.Count) Then
             paises.Clear()
@@ -96,9 +102,10 @@
         End If
         Console.ReadKey()
     End Sub
+
     Sub MostrarPais(ByRef paises As Collection)
         If ExistenPaises(paises.Count) Then
-            dominio = LeerTexto("Ingrese Dominio: ")
+            dominio = Leer_Validar_Texto("Ingrese Dominio: ")
             If Not paises.Contains(dominio) Then
                 Console.WriteLine("Pais no encontrado!.")
             Else
@@ -108,6 +115,7 @@
         End If
         Console.ReadKey()
     End Sub
+
     Sub MostrarTodo(ByRef paises As Collection)
         If ExistenPaises(paises.Count) Then
             For i = 1 To paises.Count
@@ -117,7 +125,8 @@
         End If
         Console.ReadKey()
     End Sub
-    Function LeerTexto(mensaje As String) As String
+
+    Function Leer_Validar_Texto(mensaje As String) As String
         Dim ingreso As String
         Do
             Console.Write(mensaje)
@@ -128,6 +137,7 @@
         Loop While ingreso = ""
         Return ingreso
     End Function
+
     Private Function ExistenPaises(contenido As Boolean) As Boolean
         If contenido = 0 Then
             Console.WriteLine("No existen paises!.")
@@ -136,4 +146,5 @@
             Return True
         End If
     End Function
+
 End Module
