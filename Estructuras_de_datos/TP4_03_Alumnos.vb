@@ -11,7 +11,7 @@
     ' uno que determine el promedio
     ' uno que escriba si el alumno aprobó o no
     ' uno que devuelva la lista de mejores alumnos
-    Sub ValidarCantidad(ByRef CantAlumnos As Byte, ByRef CantNotas As Byte)
+    Private Sub ValidarCantidad(ByRef CantAlumnos As Byte, ByRef CantNotas As Byte)
         Do
             CantAlumnos = LeerNumero("Ingrese cantidad de alumnos: ")
         Loop Until CantAlumnos >= 1 And CantAlumnos <= 40
@@ -20,7 +20,7 @@
         Loop Until CantNotas >= 1 And CantNotas <= 4
         Console.Clear()
     End Sub
-    Sub IngresoAlumno(ByVal fila As Integer, ByRef Alumno() As String)
+    Private Sub IngresoAlumno(ByVal fila As Integer, ByRef Alumno() As String)
         Do
             Console.Write("Ingrese nombre del alumno: ")
             Alumno(fila) = Console.ReadLine()
@@ -40,7 +40,7 @@
         End If
         Return False
     End Function
-    Sub IngresoNota(ByVal fila As Integer, ByVal columna As Integer, ByRef Nota As Single)
+    Private Sub IngresoNota(ByVal fila As Integer, ByVal columna As Integer, ByRef Nota As Single)
         Do
             Nota = LeerNumero("Ingrese Nota: ")
         Loop Until ValidarNota(Nota)
