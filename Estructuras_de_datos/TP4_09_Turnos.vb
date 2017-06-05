@@ -19,7 +19,7 @@
         Dim Opcion As Byte
         Do
             Console.Clear()
-            Console.WriteLine("0)Salir 1)Sacar Turno 2) Llamar Proximo")
+            Console.WriteLine("0)Salir 1)Sacar Turno 2)Llamar Proximo")
             MostrarMensaje(Clientes.Count)
             Opcion = Val(Leer("Ingrese Opcion: "))
             Select Case Opcion
@@ -50,12 +50,18 @@
     End Sub
 
     Private Sub LlamarProximo(ByRef Clientes As Queue)
-        Console.WriteLine("Proximo Cliente: " & Clientes.Dequeue())
-        Console.ReadKey()
+        If Not EsVacio(Clientes) Then
+            Console.WriteLine("Proximo Cliente: " & Clientes.Dequeue())
+            Console.ReadKey()
+        End If
     End Sub
 
     Private Function Leer(mensaje As String) As String
         Console.Write(mensaje)
         Return Console.ReadLine
+    End Function
+
+    Private Function EsVacio(Clientes As Queue) As Boolean
+        Return Clientes.Count = 0
     End Function
 End Module
