@@ -13,11 +13,9 @@
             Console.Clear()
             dominio = Leer("Ingrese dominio: ")
             If Not EsVacio(dominio) Then
-                If paises.ContainsKey(dominio) Then
+                If ExisteClave(paises, dominio) Then
                     pais = paises.Item(dominio)
                     Console.WriteLine(pais)
-                Else
-                    Console.WriteLine("Pais no encontrado")
                 End If
                 Console.ReadKey()
             End If
@@ -41,4 +39,12 @@
         Return valor.Length = 0
     End Function
 
+    Private Function ExisteClave(paises As Hashtable, clave As String) As Boolean
+        If Not paises.ContainsKey(clave) Then
+            Console.WriteLine("Clave no existe!, reingrese...")
+            Return False
+        Else
+            Return True
+        End If
+    End Function
 End Module
