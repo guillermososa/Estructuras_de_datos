@@ -10,7 +10,6 @@
     ' Los empleados están cargados programáticamente e
     'identificados por una clave que es su nombre abreviado.
     ' Utilizar ArrayList y Collection.
-
     Enum DiasSemana As Byte
         domingo
         lunes
@@ -23,10 +22,7 @@
 
     Sub Main()
         Dim Empleados As New Collection
-        Empleados.Add("Guillermo Sosa ", "guille")
-        Empleados.Add("Paula Bustos   ", "pau")
-        Empleados.Add("Juan Perez     ", "juan")
-        Empleados.Add("Cristian Chavez", "cris")
+        CargarEmpleados(Empleados)
         Dim ProdEmp1 As New ArrayList
         Dim ProdEmp2 As New ArrayList
         Dim ProdEmp3 As New ArrayList
@@ -41,10 +37,8 @@
             Do
                 Console.Clear()
                 Console.WriteLine("Día: " & dia.ToString)
-                Do
-                    Console.Write("Ingrese Empleado: ")
-                    Empleado = Console.ReadLine()
-                Loop Until Empleados.Contains(Empleado) Or Empleado = ""
+                MostrarEmpleados(Empleados)
+                Empleado = LeerEmpleado(Empleados)
                 If Empleado <> "" Then
                     Console.WriteLine("Nombre del Empleado: " & Empleados.Item(Empleado))
                     Console.Write("Ingrese Cantidad de Productos: ")
@@ -72,6 +66,30 @@
         Console.ReadKey()
     End Sub
 
+    Private Sub CargarEmpleados(ByRef Empleados As Collection)
+        Empleados.Add("Guillermo Sosa ", "guille")
+        Empleados.Add("Paula Bustos   ", "pau")
+        Empleados.Add("Juan Perez     ", "juan")
+        Empleados.Add("Cristian Chavez", "cris")
+    End Sub
+
+    Private Sub MostrarEmpleados(ByRef Empleados As Collection)
+        Console.WriteLine("Empleados: ")
+        For Each empleado In Empleados
+            Console.WriteLine(empleado)
+        Next
+        Console.WriteLine()
+    End Sub
+
+    Private Function LeerEmpleado(Empleados As Collection) As String
+        Dim Empleado As String
+        Do
+            Console.Write("Ingrese Empleado: ")
+            Empleado = Console.ReadLine()
+        Loop Until Empleados.Contains(Empleado) Or Empleado = ""
+        Return Empleado
+    End Function
+
     Private Sub MostrarDia(Empleados As Collection, ProdEmp1 As ArrayList, ProdEmp2 As ArrayList, ProdEmp3 As ArrayList, ProdEmp4 As ArrayList, dia As DiasSemana)
         If ProdEmp1.Item(dia) <> 0 Then
             Console.WriteLine("Dia: {0} Empleado: {1} Cantidad: {2}", dia.ToString, Empleados.Item(1), ProdEmp1.Item(dia))
@@ -89,5 +107,4 @@
             Console.WriteLine()
         End If
     End Sub
-
 End Module

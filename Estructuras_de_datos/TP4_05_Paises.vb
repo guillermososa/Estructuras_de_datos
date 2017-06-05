@@ -19,10 +19,7 @@
     Sub Main()
         Dim paises As New Collection
         Dim opcion As Byte
-        paises.Add("Argentina", "ar")
-        paises.Add("Chile", "cl")
-        paises.Add("Brasil", "br")
-        paises.Add("Paraguay", "py")
+        CargarPaises(paises)
         Do
             Console.Clear()
             Console.WriteLine("0) Salir 1) Agregar 2)Editar 3)Eliminar 4)Eliminar todo 5)Mostrar 6)Mostrar todo")
@@ -48,6 +45,13 @@
                     Console.WriteLine("Ingrese nuevamente, valor incorrecto!.")
             End Select
         Loop Until opcion = 0
+    End Sub
+
+    Private Sub CargarPaises(ByRef paises As Collection)
+        paises.Add("Argentina", "ar")
+        paises.Add("Chile", "cl")
+        paises.Add("Brasil", "br")
+        paises.Add("Paraguay", "py")
     End Sub
 
     Private Sub AgregarPais(ByRef paises As Collection)
