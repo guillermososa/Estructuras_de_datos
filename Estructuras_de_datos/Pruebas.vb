@@ -41,6 +41,7 @@
     '   ◦ Push(e): agrega un elemento a la coleccion.
     '   ◦ Pop(): obtiene y elimina un elemento de la coleccion.
     '   ◦ Peek(): obtiene un elemento de la coleccion.
+
     Enum DiasSemana As Byte
         domingo
         lunes
