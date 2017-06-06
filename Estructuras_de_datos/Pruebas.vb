@@ -34,13 +34,36 @@
     '◦ Count: cantidad de elementos.
     '   ◦ Enqueue(e): agrega un elemento a la coleccion.
     '   ◦ Dequeue(): obtiene y elimina un elemento de la coleccion.
+    '   ◦ Peek(): obtiene un elemento de la coleccion.
 
     'Métodos Stack(LIFO) : 
     '◦ Count: cantidad de elementos.
     '   ◦ Push(e): agrega un elemento a la coleccion.
     '   ◦ Pop(): obtiene y elimina un elemento de la coleccion.
+    '   ◦ Peek(): obtiene un elemento de la coleccion.
+    Enum DiasSemana As Byte
+        domingo
+        lunes
+        martes
+        miercoles
+        jueves
+        viernes
+        sabado
+    End Enum
 
     Sub Main()
-
+        Dim lista As New ArrayList
+        Dim cantemp As Byte = 7
+        For i As Byte = 1 To cantemp
+            lista.Add({0, 0, 0, 0, 0, 0, 0})
+        Next
+        For empleado As Byte = 1 To cantemp
+            Console.Write("Ingrese empleado " & empleado & " día " & DiasSemana.domingo.ToString)
+            lista(empleado)(DiasSemana.domingo) = Console.ReadLine()
+        Next
+        For empleado As Byte = 1 To cantemp
+            Console.WriteLine(lista(empleado)(DiasSemana.domingo))
+        Next
+        Console.ReadKey()
     End Sub
 End Module
