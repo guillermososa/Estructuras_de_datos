@@ -14,7 +14,60 @@
     'nombre del siguiente cliente a ser atendido. Si no hay compradores 
     'en espera informar “Sin clientes”.
     ' Utilizar Linkedlist.
-    Sub Main()
+    Enum Opciones As Byte
+        Salir
+        SacarTurno
+        LlamarProximo
+    End Enum
 
+    Sub Main()
+        Dim Clientes As New Queue
+        Dim Opcion As Byte
+        Do
+            Console.Clear()
+            Console.WriteLine("0)Salir 1)Sacar Turno 2)Llamar Proximo")
+            MostrarMensaje(Clientes.Count)
+            Opcion = Val(Leer("Ingrese Opcion: "))
+            Select Case Opcion
+                Case Opciones.Salir
+                    Opcion = 0
+                Case Opciones.SacarTurno
+                    SacarTurno(Clientes)
+                Case Opciones.LlamarProximo
+                    LlamarProximo(Clientes)
+                Case Else
+                    Console.WriteLine("Ingrese nuevamente, valor incorrecto!.")
+            End Select
+        Loop Until Opcion = 0
     End Sub
+
+    Private Sub MostrarMensaje(Cantidad As Byte)
+        Dim Mensaje As String
+        Mensaje = "Cantidad de Clientes en espera: " & Cantidad
+        If Cantidad = 0 Then
+            Mensaje &= " (Sin Clientes)"
+        End If
+        Console.WriteLine(Mensaje)
+    End Sub
+
+    Private Sub SacarTurno(ByRef Clientes As Queue)
+        Clientes.Enqueue(Leer("Ingrese su nombre: "))
+        Console.WriteLine("Aguarde un momento por favor, será llamado por uno de los empleados.")
+    End Sub
+
+    Private Sub LlamarProximo(ByRef Clientes As Queue)
+        If Not EsVacio(Clientes) Then
+            Console.WriteLine("Proximo Cliente: " & Clientes.Dequeue())
+            Console.ReadKey()
+        End If
+    End Sub
+
+    Private Function Leer(mensaje As String) As String
+        Console.Write(mensaje)
+        Return Console.ReadLine
+    End Function
+
+    Private Function EsVacio(Clientes As Queue) As Boolean
+        Return Clientes.Count = 0
+    End Function
 End Module
