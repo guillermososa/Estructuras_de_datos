@@ -1,6 +1,6 @@
 ﻿Module Pruebas
     'Métodos Collection : 
-    '◦ Add(n,c): agrega un elemento.
+    '◦ Add(e,c): agrega un elemento.
     '◦ Clear(): elimina todos los elementos.
     '◦ Count: cantidad de elementos.
     '◦ Item(c): devuelve un elemento por su índice o clave.
@@ -19,8 +19,8 @@
     '   ◦ Reverse (): Invierte el orden de todos los elementos.
     '   ◦ IndexOf(e): devuelve el índice de un elemento especificado.
 
-    'Métodos Hash Table:
-    '◦ Add(n,c): agrega un elemento.
+    'Métodos HashTable:
+    '◦ Add(e,c): agrega un elemento.
     '◦ Clear(): elimina todos los elementos.
     '◦ Count: cantidad de elementos.
     '◦ Item(c): devuelve un elemento por su índice o clave.
@@ -41,6 +41,15 @@
     '   ◦ Push(e): agrega un elemento a la coleccion.
     '   ◦ Pop(): obtiene y elimina un elemento de la coleccion.
     '   ◦ Peek(): obtiene un elemento de la coleccion.
+
+    'Colecciones Genericas
+    ' Stack (of <T>)
+    ' Queue(of <T>)
+    ' List (of <T>) (corresponde a ArrayList)
+    ' LinkedList (of <T>)
+    ' Dictionary(of <T>, <T>) (corresponde a
+    'HashTable)
+    ' Donde <T> especifica el tipo de dato.
 
     Enum DiasSemana As Byte
         domingo

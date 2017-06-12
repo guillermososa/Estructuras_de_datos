@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D91E05A8-8770-4794-95B3-F2AB245CCC0F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>Estructuras_de_datos.TP4_11_Valores_Reales</StartupObject>
+    <StartupObject>Estructuras_de_datos.TP4_13_Alumnos</StartupObject>
     <RootNamespace>Estructuras_de_datos</RootNamespace>
     <AssemblyName>Estructuras_de_datos</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -95,7 +95,8 @@
     </Compile>
     <Compile Include="TP4_02_Lista_de_Productos.vb" />
     <Compile Include="TP4_11_Valores_Reales.vb" />
-    <Compile Include="TP4_12_Genero_Queue_Stack.vb" />
+    <Compile Include="TP4_12_Genero_Queue_Turnos.vb" />
+    <Compile Include="TP4_12_Genero_Stack_Nombres.vb" />
     <Compile Include="TP4_13_Alumnos.vb" />
     <Compile Include="TP4_14_Precio_Bebidas.vb" />
     <Compile Include="TP4_15_Turnos.vb" />
